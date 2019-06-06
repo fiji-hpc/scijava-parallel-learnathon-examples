@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>26.0.0</version>
+		<relativePath />
+	</parent>
+	<artifactId>scijava-parallel-learnathon-examples</artifactId>
+	<version>2019-SNAPSHOT</version>
+	<name>SciJava Parallel</name>
+	<description>Additional classes for scijava-paralle used during learnathon.</description>
+	<url>https://</url>
+	<inceptionYear>2019</inceptionYear>
+	<organization>
+		<name>SciJava</name>
+		<url>https://scijava.org/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>Simplified BSD License</name>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>None</id>
+		</developer>
+	</developers>
+	<contributors>
+		<!-- NB: Need at least one element to override the parent. See: https://issues.apache.org/jira/browse/MNG-5220 -->
+		<contributor>
+			<name>None</name>
+		</contributor>
+	</contributors>
+
+	<mailingLists>
+		<mailingList>
+			<name>Image.sc Forum</name>
+			<archive>https://forum.image.sc/tags/scijava-parallel</archive>
+		</mailingList>
+	</mailingLists>
+
+	<scm>
+		<connection>scm:git:git://github.com/imagej/imagej-server</connection>
+		<developerConnection>scm:git:git@github.com:imagej/imagej-server</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/imagej/imagej-server</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/imagej/imagej-server</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Travis CI</system>
+		<url>https://travis-ci.org/imagej/imagej-server</url>
+	</ciManagement>
+
+	<!-- Add usual stuff as per SciJava projects -->
+
+	<properties>
+		<package-name>org.scijava.parallel</package-name>
+		<license.licenseName>bsd_2</license.licenseName>
+		<license.copyrightOwners>SciJava developers.</license.copyrightOwners>
+
+		<!-- NB: Deploy releases to the SciJava Maven repository. -->
+		<releaseProfiles>deploy-to-scijava</releaseProfiles>
+
+		<!-- TODO: Find out what is this for -->
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>scijava.public</id>
+			<url>https://maven.scijava.org/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>it4i</id>
+			<url>https://artifactory.cs.vsb.cz/it4i/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.scijava</groupId>
+			<artifactId>scijava-parallel-learnathon</artifactId>
+			<version>2019-SNAPSHOT</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>it4i</id>
+			<url>https://artifactory.cs.vsb.cz/it4i/</url>
+		</repository>
+		<snapshotRepository>
+			<id>it4i</id>
+			<url>https://artifactory.cs.vsb.cz/it4i/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>
