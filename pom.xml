@@ -89,7 +89,7 @@
 		<dependency>
 			<groupId>org.scijava</groupId>
 			<artifactId>scijava-parallel-learnathon</artifactId>
-			<version>2019-SNAPSHOT</version>
+			<version>2019</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
 		<dependency>
