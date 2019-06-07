@@ -79,9 +79,9 @@ public class DemoSciJavaParalel implements Command {
 			parallelService.selectProfile(Constants.LEARNATHON_DEMO_PROFILE_NAME);
 			try (ParallelizationParadigm paradigm = parallelService.getParadigm()) {
 				paradigm.init();
-				List<Map<String, Object>> results = paradigm.runAll(RotateImageXY.class,
-					initParameters(ds, step, count, method));
-				results.forEach(result -> uiService.show(result.get("dataset")));
+				paradigm.runAllAsync(RotateImageXY.class, initParameters(ds, step,
+					count, method)).forEach(resultFuture -> resultFuture.thenAccept(
+						result -> uiService.show(result.get("dataset"))));
 			}
 		}
 		catch (IOException exc) {
