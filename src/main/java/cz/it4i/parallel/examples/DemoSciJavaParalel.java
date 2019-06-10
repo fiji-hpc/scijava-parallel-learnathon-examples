@@ -41,6 +41,9 @@ public class DemoSciJavaParalel implements Command {
 
 	}
 
+	private static final String LINEAR = "Linear";
+	private static final String NEAREST_NEIGHBOR = "Nearest Neighbor";
+
 	@Parameter
 	private Context context;
 
@@ -65,6 +68,9 @@ public class DemoSciJavaParalel implements Command {
 	@Parameter(style = TextWidget.FIELD_STYLE, label = "Number of iteration")
 	private int count;
 
+	@Parameter(label = "Interpolation", choices = {LINEAR, NEAREST_NEIGHBOR}, persist = true)
+	private String method = LINEAR;
+
 	@Override
 	public void run() {
 		try {
@@ -74,7 +80,7 @@ public class DemoSciJavaParalel implements Command {
 			try (ParallelizationParadigm paradigm = parallelService.getParadigm()) {
 				paradigm.init();
 				List<Map<String, Object>> results = paradigm.runAll(RotateImageXY.class,
-					initParameters(ds, step, count));
+					initParameters(ds, step, count, method));
 				results.forEach(result -> uiService.show(result.get("dataset")));
 			}
 		}
@@ -86,7 +92,7 @@ public class DemoSciJavaParalel implements Command {
 
 
 	private static List<Map<String, Object>> initParameters(
-		Dataset dataset, int step, int count)
+		Dataset dataset, int step, int count, String method)
 	{
 		List<Map<String, Object>> result = new LinkedList<>();
 		int angle = step;
@@ -94,6 +100,7 @@ public class DemoSciJavaParalel implements Command {
 			Map<String, Object> parameters = new HashMap<>();
 			parameters.put("dataset", dataset);
 			parameters.put("angle", angle);
+			parameters.put("method", method);
 			angle += step;
 			result.add(parameters);
 		}
